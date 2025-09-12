@@ -14,7 +14,7 @@ services:
     networks:
       - blog_network
 
-pgadmin:
+  pgadmin:
     image: dpage/pgadmin4:latest
     container_name: blog-system_pgadmin
     environment:
@@ -27,9 +27,9 @@ pgadmin:
     networks:
       - blog_network
 
-web:
+  web:
     build: .
-    container_name: blog-system_webapp
+    container_name: django-blog-system_webapp
     ports:
       - "8503:8000"
     depends_on:
