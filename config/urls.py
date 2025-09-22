@@ -8,9 +8,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("blog.urls")),
-    path("ckeditor/", include("ckeditor_uploader.urls")),
+    path('admin/', admin.site.urls),
+    path('', include('core.urls')),           # ホーム、About、Resume
+    path('projects/', include('projects.urls')),  # プロジェクト
+    path('blog/', include('blog.urls')),      # ブログ記事
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 # Serve media files during development

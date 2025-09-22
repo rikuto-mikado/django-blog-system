@@ -3,7 +3,6 @@ Django settings for the project.
 """
 
 from pathlib import Path
-import os
 from decouple import config, Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,6 +34,8 @@ INSTALLED_APPS = [
     "ckeditor_uploader",
     "django_extensions",
     # Local apps
+    "core",
+    "projects",
     "blog",
 ]
 
@@ -49,7 +50,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "blog_project.urls"
+ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -66,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "blog_project.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 # Database
 DATABASE_URL = config("DATABASE_URL", default="sqlite:///db.sqlite3")
